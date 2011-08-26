@@ -1,0 +1,17 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+use constant TASKSTATS_CMD_ATTR_REGISTER_CPUMASK => 3;
+
+use IO::Socket::Netlink::Generic;
+
+my $sock = new IO::Socket::Netlink::Generic;
+
+print $sock->get_family_by_name('TASKSTATS')->{id} . "\n";
+
+#$sock->send_nlmsg(
+#my $msg = $sock->new_message(nlmsg_flags => NLM_F_REQUEST,
+#	cmd => TASKSTATS_CMD_GET
+#	nlattrs => 
